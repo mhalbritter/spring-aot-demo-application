@@ -28,3 +28,16 @@ java {
     }
 }
 
+graalvmNative {
+    // Speeds up the native-image build process. Do not use this in production, only for development!
+    binaries {
+        main {
+            quickBuild = true
+        }
+    }
+    // Use the newest version of the graalvm-reachability-metadata metadata
+    metadataRepository {
+        enabled = true
+        version = "0.1.2"
+    }
+}

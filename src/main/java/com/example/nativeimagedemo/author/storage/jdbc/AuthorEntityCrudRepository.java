@@ -1,4 +1,4 @@
-package com.example.nativeimagedemo.author.storage;
+package com.example.nativeimagedemo.author.storage.jdbc;
 
 import org.springframework.data.repository.ListCrudRepository;
 

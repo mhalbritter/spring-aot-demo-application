@@ -1,4 +1,4 @@
-package com.example.nativeimagedemo.author.storage;
+package com.example.nativeimagedemo.author.storage.jdbc;
 
 import com.example.nativeimagedemo.author.business.Author;
 import com.example.nativeimagedemo.author.business.AuthorRepository;
@@ -11,17 +11,16 @@ import java.util.stream.Collectors;
  * @author Moritz Halbritter
  */
 @Repository
-class JpaAuthorRepository implements AuthorRepository {
+class JdbcAuthorRepository implements AuthorRepository {
     private final AuthorEntityCrudRepository crudRepository;
 
-    JpaAuthorRepository(AuthorEntityCrudRepository crudRepository) {
+    JdbcAuthorRepository(AuthorEntityCrudRepository crudRepository) {
         this.crudRepository = crudRepository;
     }
 
     @Override
     public Author insert(String name) {
-        AuthorEntity entity = new AuthorEntity();
-        entity.setName(name);
+        AuthorEntity entity = new AuthorEntity(null, name);
         entity = this.crudRepository.save(entity);
         return entity.toAuthor();
     }

@@ -3,7 +3,7 @@ package com.example.nativeimagedemo.author.business.impl;
 import com.example.nativeimagedemo.author.business.Author;
 import com.example.nativeimagedemo.author.business.AuthorRepository;
 import com.example.nativeimagedemo.author.business.AuthorService;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author Moritz Halbritter
  */
-@Component
+@Service
 class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 

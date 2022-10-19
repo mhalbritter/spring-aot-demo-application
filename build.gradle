@@ -1,8 +1,8 @@
 plugins {
     id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
-    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
-    id 'org.graalvm.buildtools.native' version '0.9.13'
+    id 'org.graalvm.buildtools.native' version '0.9.15'
 }
 
 group = 'com.example'
@@ -30,15 +30,9 @@ java {
 }
 
 graalvmNative {
-    // Speeds up the native-image build process. Do not use this in production, only for development!
-    binaries {
-        main {
-            quickBuild = true
-        }
-    }
     // Use the newest version of the graalvm-reachability-metadata metadata
     metadataRepository {
         enabled = true
-        version = "0.1.2"
+        version = "0.2.3"
     }
 }

@@ -15,6 +15,8 @@ Uses Spring WebMVC for the web layer, and Spring Data JDBC with a PostgreSQL dat
 
 ## How to run as a native-image
 
+*Note*: You need at least GraalVM 22.3 for this to work.
+
 1. Build native image: `./gradlew nativeCompile`
 1. Start a PostgreSQL
    database: `docker run --rm -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=user postgres`

@@ -8,6 +8,7 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
  */
 @Configuration
 @EnableJdbcRepositories
+@OnEnabledDataJdbc
 class DataJdbcConfiguration {
 
 }

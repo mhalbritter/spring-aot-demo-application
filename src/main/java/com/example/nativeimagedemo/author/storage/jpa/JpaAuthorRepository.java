@@ -1,4 +1,4 @@
-package com.example.nativeimagedemo.author.storage.jdbc;
+package com.example.nativeimagedemo.author.storage.jpa;
 
 import com.example.nativeimagedemo.author.business.Author;
 import com.example.nativeimagedemo.author.business.AuthorRepository;
@@ -13,22 +13,23 @@ import java.util.stream.Collectors;
  * @author Moritz Halbritter
  */
 @Repository
-@OnEnabledDataJdbc
-class JdbcAuthorRepository implements AuthorRepository {
-    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcAuthorRepository.class);
+@OnEnabledDataJpa
+class JpaAuthorRepository implements AuthorRepository {
+    private static final Logger LOGGER = LoggerFactory.getLogger(JpaAuthorRepository.class);
 
     private final AuthorEntityCrudRepository crudRepository;
 
-    JdbcAuthorRepository(AuthorEntityCrudRepository crudRepository) {
-        LOGGER.info("Using Spring Data JDBC as storage backend");
+    JpaAuthorRepository(AuthorEntityCrudRepository crudRepository) {
+        LOGGER.info("Using Spring Data JPA as storage backend");
         this.crudRepository = crudRepository;
     }
 
     @Override
     public Author insert(String name) {
-        AuthorEntity entity = new AuthorEntity(null, name);
+        AuthorEntity entity = new AuthorEntity(name);
         entity = this.crudRepository.save(entity);
         return entity.toAuthor();
+
     }
 
     @Override

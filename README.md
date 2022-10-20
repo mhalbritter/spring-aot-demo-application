@@ -2,7 +2,7 @@
 
 A Spring Boot project running on native-image, using traditional three tier architecture.
 
-Uses Spring WebMVC for the web layer, and Spring Data JDBC with a PostgreSQL database as storage layer.
+Uses Spring WebMVC for the web layer, and Spring Data JDBC / JPA with a PostgreSQL database as storage layer.
 
 ## How to run
 
@@ -34,3 +34,13 @@ Uses Spring WebMVC for the web layer, and Spring Data JDBC with a PostgreSQL dat
 1. Insert some authors: `curlie POST :8080/author name=Moritz`
 1. Insert some authors: `curlie POST :8080/author name=Andy`
 1. Query the authors: `curlie :8080/author`
+
+## How to switch the storage backend
+
+The application property `application.storage` sets the storage backend to use:
+
+* `data_jdbc`: Use Spring Data JDBC.
+* `data_jpa`: Use Spring Data JPA.
+
+Note that you **can't** switch that after you have built your native image (or run in AOT mode), as the native image
+only contains the beans needed when the application has been built.

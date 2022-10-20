@@ -1,10 +1,10 @@
-package com.example.nativeimagedemo.author.storage.jdbc;
+package com.example.nativeimagedemo.author.storage.jpa;
 
 import org.springframework.data.repository.ListCrudRepository;
 
 /**
  * @author Moritz Halbritter
  */
-@OnEnabledDataJdbc
+@OnEnabledDataJpa
 interface AuthorEntityCrudRepository extends ListCrudRepository<AuthorEntity, Long> {
 }

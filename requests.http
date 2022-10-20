@@ -1,0 +1,19 @@
+### Create author
+POST localhost:8080/author
+Content-Type: application/json
+
+{
+    "name": "Moritz"
+}
+
+### Create author
+POST localhost:8080/author
+Content-Type: application/json
+
+{
+    "name": "Andy"
+}
+
+### List authors
+GET localhost:8080/author
+Accept: application/json

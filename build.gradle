@@ -36,6 +36,6 @@ graalvmNative {
     // Use the newest version of the graalvm-reachability-metadata metadata
     metadataRepository {
         enabled = true
-        version = "0.2.3"
+        version = "0.2.5"
     }
 }
